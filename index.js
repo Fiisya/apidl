@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-const routes = ["igdl", "fbdl", "githubstalk", "searchgroups"];
+const routes = [ "tiktokdl", "igdl", "fbdl", "githubstalk", "searchgroups"];
 routes.forEach(route => {
     app.use(`/api/${route}`, require(`./api/${route}`));
 });
