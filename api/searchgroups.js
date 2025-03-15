@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
     if (!q) {
         return res.status(400).json({
             status: 400,
-            creator: 'OwnBlox',
+            creator: 'AlfiXD',
             error: 'Masukkan kata kunci grup!'
         });
     }
@@ -49,14 +49,14 @@ router.get('/', async (req, res) => {
     if (result.length === 0) {
         return res.status(404).json({
             status: 404,
-            creator: 'OwnBlox',
+            creator: 'AlfiXD',
             error: 'Grup tidak ditemukan atau gagal.'
         });
     }
 
     res.json({
         status: 200,
-        creator: 'OwnBlox',
+        creator: 'AlfiXD',
         result
     });
 });
