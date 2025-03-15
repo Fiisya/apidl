@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     if (!url) {
         return res.status(400).json({
             status: 400,
-            creator: 'OwnBlox',
+            creator: 'AlfiXD',
             error: 'Masukkan URL Facebook!'
         });
     }
@@ -23,14 +23,14 @@ router.get('/', async (req, res) => {
         if (!data.links || !data.links["Download High Quality"]) {
             return res.status(500).json({
                 status: 500,
-                creator: "OwnBlox",
+                creator: "AlfiXD",
                 error: "Gagal mendapatkan link video."
             });
         }
 
         res.json({
             status: 200,
-            creator: "OwnBlox",
+            creator: "AlfiXD",
             source: url,
             download_link: data.links["Download High Quality"]
         });
@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
         console.error("Error:", err.message);
         res.status(500).json({
             status: 500,
-            creator: 'OwnBlox',
+            creator: 'AlfiXD',
             error: 'Terjadi kesalahan, coba lagi nanti!'
         });
     }
