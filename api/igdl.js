@@ -74,7 +74,7 @@ router.get('/', async (req, res) => {
     res.json({
         status: true,
         code: 200,
-        creator: 'OwnBlox',
+        creator: 'AlfiXD',
         result
     });
 });
