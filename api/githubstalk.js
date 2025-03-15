@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
             return res.status(400).json({
                 status: false,
                 code: 400,
-                creator: "OwnBlox",
+                creator: "AlfiXD",
                 message: "Masukkan username GitHub!"
             });
         }
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
             return res.status(404).json({
                 status: false,
                 code: 404,
-                creator: "OwnBlox",
+                creator: "AlfiXD",
                 message: `Akun *${username}* tidak ditemukan.`
             });
         }
@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
         res.status(200).json({
             status: true,
             code: 200,
-            creator: "OwnBlox",
+            creator: "AlfiXD",
             data: {
                 name,
                 username,
@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
         res.status(500).json({
             status: false,
             code: 500,
-            creator: "OwnBlox",
+            creator: "AlfiXD",
             message: "Terjadi kesalahan saat mengambil data.",
             error: error.message
         });
