@@ -6,29 +6,29 @@
 }
 
 body {
-    background: linear-gradient(120deg, #ffffff, #d6ecff, #ffffff);
-    background-size: 400% 400%; /* Perbesar ukuran gradasi */
-    color: #333;
+    background: linear-gradient(120deg, #000000, #0a0f3e, #000000); /* Hitam ke biru tua */
+    background-size: 400% 400%;
+    color: #f0f0f0; /* Warna teks terang untuk kontras */
     line-height: 1.6;
     padding: 20px;
-    font-family: Arial, sans-serif;
     position: relative;
     min-height: 100vh;
-    animation: gradientBackground 10s ease infinite; /* Animasi gradasi */
+    animation: gradientBackground 10s ease infinite;
 }
 
 @keyframes gradientBackground {
     0% {
-        background-position: 0% 50%; /* Posisi awal gradasi */
+        background-position: 0% 50%;
     }
     50% {
-        background-position: 100% 50%; /* Posisi tengah gradasi */
+        background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%; /* Kembali ke posisi awal */
+        background-position: 0% 50%;
     }
 }
 
+/* WAVE ANIMASI DI BAWAH */
 .wave-container {
     position: fixed;
     bottom: 0;
@@ -37,27 +37,27 @@ body {
     height: 20%;
     overflow: hidden;
     pointer-events: none;
-    z-index: -1; /* Pastikan wave di belakang konten */
+    z-index: -1;
 }
 
 .wave {
     position: absolute;
     width: 200%;
     height: 100%;
-    background: rgba(220, 240, 255, 0.6);
+    background: rgba(20, 20, 60, 0.6);
     opacity: 0.8;
     transform: translateY(10px);
     animation: waveMove 6s linear infinite alternate;
 }
 
 .wave:nth-child(2) {
-    background: rgba(200, 230, 255, 0.8);
+    background: rgba(15, 15, 50, 0.8);
     height: 120%;
     animation-duration: 8s;
 }
 
 .wave:nth-child(3) {
-    background: rgba(180, 220, 255, 0.9);
+    background: rgba(10, 10, 40, 0.9);
     height: 140%;
     animation-duration: 10s;
 }
@@ -67,19 +67,20 @@ body {
     100% { transform: translateX(10%) translateY(-10px); }
 }
 
+/* KONTEN */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background: #fff;
+    background: #121212; /* Latar belakang konten hitam pekat */
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 h1 {
     font-size: 28px;
     margin-bottom: 20px;
-    color: #007bff;
+    color: #4da8da; /* Biru Vanila */
     text-align: center;
 }
 
@@ -90,9 +91,9 @@ h1 {
 
 .api-category h2 {
     font-size: 24px;
-    color: #007bff;
+    color: #4da8da;
     margin-bottom: 15px;
-    border-bottom: 2px solid #007bff;
+    border-bottom: 2px solid #4da8da;
     padding-bottom: 5px;
 }
 
@@ -103,17 +104,17 @@ h1 {
 }
 
 .api-item {
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #1b1b1b;
+    border: 1px solid #4da8da;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .api-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
 .api-header {
@@ -129,8 +130,8 @@ h1 {
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #4da8da;
+    color: #000;
     width: 60px;
     text-align: center;
 }
@@ -146,19 +147,19 @@ h1 {
 }
 
 .api-status-badge.online {
-    background-color: #28a745; /* Hijau untuk ONLINE */
+    background-color: #28a745;
     color: #fff;
 }
 
 .api-status-badge.offline {
-    background-color: #dc3545; /* Merah untuk OFFLINE */
+    background-color: #dc3545;
     color: #fff;
 }
 
 .api-title {
     font-size: 18px;
     font-weight: bold;
-    color: #007bff;
+    color: #4da8da;
 }
 
 .api-title:hover {
@@ -168,22 +169,22 @@ h1 {
 .api-description {
     margin-top: 10px;
     padding: 10px;
-    background-color: #f9f9f9;
-    border-left: 4px solid #007bff;
+    background-color: #222;
+    border-left: 4px solid #4da8da;
     border-radius: 4px;
-    display: none; /* Deskripsi disembunyikan secara default */
+    display: none;
 }
 
 .api-description p {
     margin: 0;
     font-size: 14px;
-    color: #555;
+    color: #bbb;
 }
 
 .api-endpoint {
     font-family: monospace;
-    color: #333;
-    background-color: #f1f1f1;
+    color: #fff;
+    background-color: #333;
     padding: 5px;
     border-radius: 4px;
     margin-top: 10px;
@@ -191,8 +192,8 @@ h1 {
 
 .api-description button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #4da8da;
+    color: #000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -201,7 +202,7 @@ h1 {
 }
 
 .api-description button:hover {
-    background-color: #0056b3;
+    background-color: #3a90b6;
 }
 
 footer {
