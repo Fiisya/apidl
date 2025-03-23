@@ -3,68 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar API</title>
+    <title>AlfiXD API - Fast & Reliable</title>
+    <meta property="og:title" content="AlfiXD API - Fast & Reliable">
+    <meta property="og:description" content="Dokumentasi lengkap API dari AlfiXD. Cepat, aman, dan terpercaya!">
+    <meta property="og:image" content="https://files.catbox.moe/2ybrj7.jpg">
+    <meta property="og:url" content="https://api.alfixd.my.id">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+    <link rel="icon" href="https://files.catbox.moe/2ybrj7.jpg" type="image/jpeg">
 </head>
 <body>
     <div class="container">
-        <h1>Daftar API</h1>
-        <div class="api-list" id="api-container">
-            <!-- Instagram Downloader -->
-            <div class="api-item">
-                <div class="api-header" onclick="toggleDescription('igdl')">
-                    <span class="api-method">GET</span>
-                    <span class="api-title">Instagram Downloader</span>
-                </div>
-                <div class="api-description" id="igdl-description">
-                    <p>API untuk mendownload video atau gambar dari Instagram.</p>
-                    <div class="api-endpoint">Endpoint: /api/igdl?url=</div>
-                    <button onclick="window.location.href='/api/igdl?url='">Akses Endpoint</button>
-                </div>
-            </div>
-
-            <!-- Facebook Downloader -->
-            <div class="api-item">
-                <div class="api-header" onclick="toggleDescription('fbdl')">
-                    <span class="api-method">GET</span>
-                    <span class="api-title">Facebook Downloader</span>
-                </div>
-                <div class="api-description" id="fbdl-description">
-                    <p>API untuk mendownload video dari Facebook.</p>
-                    <div class="api-endpoint">Endpoint: /api/fbdl?url=</div>
-                    <button onclick="window.location.href='/api/fbdl?url='">Akses Endpoint</button>
-                </div>
-            </div>
-
-            <!-- GitHub Stalk -->
-            <div class="api-item">
-                <div class="api-header" onclick="toggleDescription('githubstalk')">
-                    <span class="api-method">GET</span>
-                    <span class="api-title">GitHub Stalk</span>
-                </div>
-                <div class="api-description" id="githubstalk-description">
-                    <p>API untuk melihat profil GitHub pengguna.</p>
-                    <div class="api-endpoint">Endpoint: /api/githubstalk?username=</div>
-                    <button onclick="window.location.href='/api/githubstalk?username='">Akses Endpoint</button>
-                </div>
-            </div>
-
-            <!-- Search Groups -->
-            <div class="api-item">
-                <div class="api-header" onclick="toggleDescription('searchgroups')">
-                    <span class="api-method">GET</span>
-                    <span class="api-title">Search Groups</span>
-                </div>
-                <div class="api-description" id="searchgroups-description">
-                    <p>API untuk mencari grup WhatsApp berdasarkan kata kunci.</p>
-                    <div class="api-endpoint">Endpoint: /api/searchgroups?q=</div>
-                    <button onclick="window.location.href='/api/searchgroups?q='">Akses Endpoint</button>
-                </div>
-            </div>
-        </div>
-        <footer>© 2025 API AlfiXD</footer>
+        <h1>API Documentation</h1>
+        <div id="api-categories"></div>
+        <footer>© 2025 API AlfiXD – Fast & Reliable API Services.</footer>
     </div>
 </body>
 </html>
