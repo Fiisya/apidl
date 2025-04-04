@@ -34,6 +34,13 @@ const apiData = {
             status: "online",
             description: "API untuk mendownload video dari TikTok.",
             endpoint: "/api/ttdl?url="
+        },
+        {
+            method: "GET",
+            title: "GitHub Cloning",
+            status: "online",
+            description: "Cloning repositori dari GitHub.",
+            endpoint: "/api/gitclone?url="
         }
     ],
     "Search": [
@@ -76,6 +83,13 @@ const apiData = {
         },
         {
             method: "GET",
+            title: "Gemini AI",
+            status: "online",
+            description: "API untuk mengakses AI model Gemini yang serbaguna.",
+            endpoint: "/api/gemini?text="
+        },
+        {
+            method: "GET",
             title: "Txt2Img",
             status: "online",
             description: "API untuk membuat gambar dari AI dengan style yang banyak.",
@@ -89,9 +103,51 @@ const apiData = {
             status: "online",
             description: "API untuk screenshot website dengan mudah.",
             endpoint: "/api/ssweb?url="
+        },
+        {
+            method: "GET",
+            title: "Translate",
+            status: "online",
+            description: "API untuk translate bahasa apapun menjadi yang kamu inginkan.",
+            endpoint: "/api/translate?text=&to="
+        },
+        {
+            method: "GET",
+            title: "Nulis",
+            status: "online",
+            description: "Membuat gambar buku beserta tulisan berdasarkan dari query text kamu.",
+            endpoint: "/api/nulis?text="
+        },
+        {
+            method: "GET",
+            title: "Cuaca",
+            status: "online",
+            description: "Mendapatkan informasi Cuaca semua kota di dunia berdasarkan query kota.",
+            endpoint: "/api/cuaca?kota="
+        },
+        {
+            method: "GET",
+            title: "QR Code Generator",
+            status: "online",
+            description: "Membuat QR secara otomatis dengan gampang.",
+            endpoint: "/api/qrcodegenerator?text="
+        },
+        {
+            method: "GET",
+            title: "Credit Card Generator",
+            status: "online",
+            description: "Fake generator Credit Card hanya untuk Fun",
+            endpoint: "/api/vcc?type=&count="
         }
     ],
     "Fun": [
+        {
+            method: "GET",
+            title: "Cek Khodam",
+            status: "online",
+            description: "Permainan seru yang menunjukkan khodam seseorang berdasarkan nama.",
+            endpoint: "/api/cekkhodam?nama="
+        },
         {
             method: "GET",
             title: "Tahu Kah Kamu?",
@@ -99,7 +155,39 @@ const apiData = {
             description: "Permainan seru yang menunjukkan fakta2 random yang mungkin belom kamu ketahui.",
             endpoint: "/api/tahukahkamu"
         }
-    ]
+    ],
+    "Sticker": [
+        {
+            method: "GET",
+            title: "Brat Image",
+            status: "online",
+            description: "Mengubah text kamu menjadi gambar brat.",
+            endpoint: "/api/brat?text="
+        },
+        {
+            method: "POST",
+            title: "Quoted Chat",
+            status: "offline",
+            description: "Membuat gambar dengan desain quoted chat yang bisa kamu custom nama, color, foto profile, dan lainnya.",
+            endpoint: "/api/qc"
+        }
+    ],
+    "Berita": [
+        {
+            method: "GET",
+            title: "Detik News",
+            status: "online",
+            description: "Mendapatkan informasi berita terbaru dari Detik News.",
+            endpoint: "/api/detiknews"
+        },
+        { 
+            method: "GET",
+            title: "Kompas",
+            status: "online",
+            description: "Mendapatkan informasi berita terbaru dari Kompas",
+            endpoint: "/api/kompasnews"
+        }
+    ]      
 };
 
 function createApiItem(api) {
