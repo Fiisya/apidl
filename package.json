@@ -16,6 +16,7 @@
     "@google/generative-ai": "^0.24.0",
     "express-rate-limit": "^7.5.0",
     "weather-js": "^2.0.0",
+    "https": "^1.0.0",
     "qrcode": "^1.5.4"
   }
 }
