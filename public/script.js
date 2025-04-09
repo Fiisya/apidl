@@ -71,7 +71,21 @@ const apiData = {
             status: "online",
             description: "API untuk mencari video dari YouTube berdasarkan kata kunci atau query.",
             endpoint: "/api/ytsearch?q="
-        }    
+        },
+        {
+            method: "GET",
+            title: "NPM Search",
+            status: "online",
+            description: "Mencari package/module/library yang tersedia berdasarkan query(q) kamu.",
+            endpoint: "/api/npmsearch?q="
+        },
+        {
+            method: "GET",
+            title: "Pinterest",
+            status: "online",
+            description: "Mencari gambar di Pinterest berdasarkan query (q) kamu.",
+            endpoint: "/api/pinterest?q="
+        }
     ],
     "AI": [
         {
