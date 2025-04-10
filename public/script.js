@@ -41,6 +41,13 @@ const apiData = {
             status: "online",
             description: "Cloning repositori dari GitHub.",
             endpoint: "/api/gitclone?url="
+        },
+        {
+            method: "GET",
+            title: "Spotify Downloader",
+            status: "online",
+            description: "Download semua lagu dari Spotify dengan mudah.",
+            endpoint: "/api/spotifydl?url="
         }
     ],
     "Search": [
@@ -85,6 +92,13 @@ const apiData = {
             status: "online",
             description: "Mencari gambar di Pinterest berdasarkan query (q) kamu.",
             endpoint: "/api/pinterest?q="
+        },
+        {
+            method: "GET",
+            title: "Spotify Search",
+            status: "online",
+            description: "Mencari lagu dengan informasi lengkap lainnya berdasarkan query (q) kamu.",
+            endpoint: "/api/spotifysearch?q="
         }
     ],
     "AI": [
@@ -197,7 +211,7 @@ const apiData = {
         { 
             method: "GET",
             title: "Kompas",
-            status: "online",
+            status: "offline",
             description: "Mendapatkan informasi berita terbaru dari Kompas",
             endpoint: "/api/kompasnews"
         }
@@ -271,6 +285,27 @@ function setupToggleDescriptions() {
     });
 }
 
+function updateStatistics() {
+    let totalEndpoints = 0;
+    let onlineEndpoints = 0;
+    let offlineEndpoints = 0;
+
+    for (const category in apiData) {
+        apiData[category].forEach(api => {
+            totalEndpoints++;
+            if (api.status === 'online') {
+                onlineEndpoints++;
+            } else {
+                offlineEndpoints++;
+            }
+        });
+    }
+
+    document.getElementById('total-endpoints').textContent = totalEndpoints;
+    document.getElementById('online-endpoints').textContent = onlineEndpoints;
+    document.getElementById('offline-endpoints').textContent = offlineEndpoints;
+}
+
 function loadApiData() {
     const apiCategoriesContainer = document.getElementById('api-categories');
 
@@ -295,6 +330,7 @@ function loadApiData() {
     }
 
     setupToggleDescriptions();
+    updateStatistics();
 }
 
 document.addEventListener('DOMContentLoaded', loadApiData);
