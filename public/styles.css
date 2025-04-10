@@ -149,9 +149,78 @@ h1 {
 
 footer {
     margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.copyright {
     font-size: 14px;
     color: #777;
     text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #009ffe;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-link i {
+    font-size: 20px;
+}
+
+.social-link:hover i.fa-github {
+    color: #333;
+}
+
+.social-link:hover i.fa-whatsapp {
+    color: #25D366;
+}
+
+.social-link span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        gap: 10px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* Responsive Design */
@@ -175,5 +244,93 @@ footer {
     .api-description button {
         font-size: 12px;
         padding: 8px 16px;
+    }
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(120deg, #e3f2fd, #bbdefb);
+    border-radius: 8px;
+}
+
+.welcome-section h2 {
+    color: #009ffe;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.welcome-section p {
+    color: #37474f;
+    font-size: 16px;
+}
+
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #1E223E;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: #161b32;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-item i {
+    font-size: 32px;
+    color: #009ffe;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 36px;
+    font-weight: bold;
+    color: #009ffe;
+    margin: 10px 0;
+}
+
+.stat-item p {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Responsive untuk statistics */
+@media (max-width: 768px) {
+    .statistics {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 15px;
+    }
+    
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .stat-item i {
+        font-size: 28px;
+    }
+    
+    .stat-item span {
+        font-size: 32px;
+    }
+    
+    .stat-item p {
+        font-size: 14px;
     }
 }
