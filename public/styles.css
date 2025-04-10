@@ -251,7 +251,7 @@ footer {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px;
-    background: linear-gradient(120deg, #e3f2fd, #bbdefb);
+    background: #1E223E;
     border-radius: 8px;
 }
 
@@ -262,7 +262,7 @@ footer {
 }
 
 .welcome-section p {
-    color: #37474f;
+    color: #009ffe;
     font-size: 16px;
 }
 
