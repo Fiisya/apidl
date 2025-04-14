@@ -227,7 +227,7 @@ const apiData = {
         { 
             method: "GET",
             title: "Kompas",
-            status: "offline",
+            status: "online",
             description: "Mendapatkan informasi berita terbaru dari Kompas",
             endpoint: "/api/kompasnews"
         }
