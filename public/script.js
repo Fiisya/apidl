@@ -53,13 +53,6 @@ const apiData = {
     "Search": [
         {
             method: "GET",
-            title: "GitHub Stalk",
-            status: "online",
-            description: "API untuk melihat profil GitHub pengguna.",
-            endpoint: "/api/githubstalk?username="
-        },
-        {
-            method: "GET",
             title: "Search Groups",
             status: "online",
             description: "API untuk mencari grup WhatsApp berdasarkan kata kunci.",
@@ -88,6 +81,13 @@ const apiData = {
         },
         {
             method: "GET",
+            title: "Google Search",
+            status: "online",
+            description: "Mencari apapun dan semuanya dari Google dengan cepat.",
+            endpoint: "/api/googlesearch?q="
+        },
+        {
+            method: "GET",
             title: "Pinterest",
             status: "online",
             description: "Mencari gambar di Pinterest berdasarkan query (q) kamu.",
@@ -101,6 +101,22 @@ const apiData = {
             endpoint: "/api/spotifysearch?q="
         }
     ],
+        "Stalker": [
+        {
+            method: "GET",
+            title: "Genshin Stalk",
+            status: "online",
+            description: "Stalking akun genshin berdasarkan UID kamu.",
+            endpoint: "/api/gistalk?uid="
+        },
+        {
+            method: "GET",
+            title: "GitHub Stalk",
+            status: "online",
+            description: "Stalking akun GitHub berdasarkan username.",
+            endpoint: "/api/githubstalk?username="
+        }
+    ],      
     "AI": [
         {
             method: "GET",
@@ -217,6 +233,29 @@ const apiData = {
         }
     ]      
 };
+
+// Fungsi Pencarian
+ function searchEndpoints() {
+   const searchInput = document.getElementById('search-input');
+   const searchTerm = searchInput.value.toLowerCase();
+   
+   document.querySelectorAll('.api-item').forEach(item => {
+     const title = item.querySelector('.api-title').textContent.toLowerCase();
+     const description = item.querySelector('.api-description p').textContent.toLowerCase();
+     item.style.display = (title.includes(searchTerm) || description.includes(searchTerm)) 
+       ? 'block' 
+       : 'none';
+   });
+ 
+   // Sembunyikan kategori yang kosong
+   document.querySelectorAll('.api-category').forEach(category => {
+     const hasVisibleItems = category.querySelector('.api-item[style="display: block;"]');
+     category.style.display = hasVisibleItems ? 'block' : 'none';
+   });
+ }
+ 
+ // Event Listener untuk Input
+ document.getElementById('search-input').addEventListener('input', searchEndpoints);
 
 function createApiItem(api) {
     const apiItem = document.createElement('div');
