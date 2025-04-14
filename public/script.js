@@ -48,13 +48,6 @@ const apiData = {
             status: "online",
             description: "Download semua lagu dari Spotify dengan mudah.",
             endpoint: "/api/spotifydl?url="
-        },
-        {
-            method: "GET",
-            title: "MediaFire Downloader",
-            status: "online",
-            description: "Download file dari MediaFire hanya dengan memasukkan URL.",
-            endpoint: "/api/mediafire?url"
         }
     ],
     "Search": [
@@ -234,7 +227,7 @@ const apiData = {
         { 
             method: "GET",
             title: "Kompas",
-            status: "offline",
+            status: "online",
             description: "Mendapatkan informasi berita terbaru dari Kompas",
             endpoint: "/api/kompasnews"
         }
