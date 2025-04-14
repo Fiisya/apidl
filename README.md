@@ -4,7 +4,8 @@ Rest API AlfiXD adalah proyek yang menyediakan berbagai endpoint API untuk berba
 
 ## Fitur Utama
 - **Downloader**: YouTube, Twitter/X, Facebook, Instagram, TikTok, GitHub, Spotify 
-- **Search**: YouTube, TikTok, WhatsApp Groups, GitHub Stalker, NPM Search, Pinterest, Spotify
+- **Search**: YouTube, TikTok, WhatsApp Groups, NPM Search, Google, DuckDuckGo, Pinterest, Spotify
+- **Stalker**: Genshin Stalk
 - **AI & Image**: Llama AI, Gemini AI Text-to-Image, Brat Image, Quoted Chat  
 - **Tools**: Screenshot Web, QR Code Generator, Translate, Nulis  
 - **Information**: Cuaca, Detik News, Kompas  
