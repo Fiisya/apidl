@@ -48,6 +48,13 @@ const apiData = {
             status: "online",
             description: "Download semua lagu dari Spotify dengan mudah.",
             endpoint: "/api/spotifydl?url="
+        },
+        {
+    method: "GET",
+    title: "MediaFire Downloader",
+    status: "online",
+    description: "Download file dari MediaFire hanya dengan memasukkan URL.",
+    endpoint: "/api/mediafire?url="
         }
     ],
     "Search": [
