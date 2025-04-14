@@ -61,7 +61,7 @@ function sendUpdateToClients() {
     });
 }
 
-const routes = ["ytdl", "twitterdl", "igdl", "fbdl", "ttdl", "gitclone", "spotifydl",
+const routes = ["ytdl", "twitterdl", "igdl", "fbdl", "ttdl", "gitclone", "spotifydl", "mediafire",
     "githubstalk", "searchgroups", "ttsearch", "ytsearch", "npmsearch", "googlesearch",
     "pinterest", "spotifysearch", "gistalk", "llama-3.3-70b-versatile", "gemini",
     "txt2img", "ssweb", "translate", "nulis", "cuaca", "qrcodegenerator",
