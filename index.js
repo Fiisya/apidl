@@ -63,7 +63,7 @@ function sendUpdateToClients() {
 
 const routes = [
     "ytdl", "twitterdl", "igdl", "fbdl", "ttdl", "gitclone", "spotifydl",
-    "githubstalk", "searchgroups", "randommeme", "ttsearch", "ytsearch", "npmsearch", "googlesearch", "duckduckgo",
+    "githubstalk", "searchgroups", "randommeme", "ttsearch", "ytsearch", "npmsearch", "googlesearch",
     "pinterest", "spotifysearch", "gistalk", "llama-3.3-70b-versatile", "gemini",
     "txt2img", "genshinbuild", "ssweb", "translate", "nulis", "cuaca", "qrcodegenerator",
     "vcc", "cekkhodam", "tahukahkamu", "brat", "qc", "detiknews", "kompasnews"
