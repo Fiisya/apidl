@@ -60,6 +60,13 @@ const apiData = {
         },
         {
             method: "GET",
+            title: "Random Meme",
+            status: "online",
+            description: "Gambar random yang berisi Meme dan bisa di tentukan count(jumlah) nya.",
+            endpoint: "/api/randommeme?count="
+        },  
+        {
+            method: "GET",
             title: "TikTok Search",
             status: "online",
             description: "API untuk mencari video dari TikTok berdasarkan query.",
@@ -141,6 +148,13 @@ const apiData = {
         }
     ],
     "Tools": [
+            {
+            method: "GET",
+            title: "Genshin Character Build",
+            status: "online",
+            description: "Build karakter Genshin Impact yang lengkap berdasarkan query (q) kamu.",
+            endpoint: "/api/genshinbuild?q="
+        },
         {
             method: "GET",
             title: "Screenshot Web",
