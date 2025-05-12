@@ -1,59 +1,83 @@
 const express = require('express');
 const axios = require('axios');
+
 const router = express.Router();
 
-const colorList = [
-  'white', 'black', 'red', 'green', 'blue', 'yellow', 'pink', 'purple', 'orange', 'brown', 'gray',
-  'cyan', 'magenta', 'lime', 'maroon', 'navy', 'olive', 'teal', 'silver', 'gold',
-  'violet', 'indigo', 'beige', 'coral', 'crimson', 'turquoise', 'salmon', 'khaki', 'lavender', 'mint'
-];
+const warnaMap = {
+    putih: '#ffffff',
+    hitam: '#000000',
+    merah: '#ff0000',
+    biru: '#0000ff',
+    hijau: '#00ff00',
+    kuning: '#ffff00',
+    ungu: '#800080',
+    oranye: '#ffa500',
+    pink: '#ffc0cb',
+    abu: '#808080',
+    emas: '#ffd700',
+    perak: '#c0c0c0',
+    coklat: '#8b4513',
+    biru_tua: '#00008b',
+    biru_muda: '#add8e6',
+    hijau_tua: '#006400',
+    hijau_muda: '#90ee90',
+    merah_muda: '#ff7f7f',
+    merah_tua: '#8b0000',
+    ungu_muda: '#dda0dd',
+    ungu_tua: '#4b0082',
+    jingga: '#ffa500',
+    cyan: '#00ffff',
+    magenta: '#ff00ff',
+    navy: '#000080',
+    teal: '#008080',
+    olive: '#808000',
+    coral: '#ff7f50',
+    lavender: '#e6e6fa',
+    salmon: '#fa8072'
+};
 
-async function urlToBase64(imageUrl) {
-  try {
-    const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
-    return Buffer.from(response.data, 'binary').toString('base64');
-  } catch {
-    return null;
-  }
-}
+router.get('/', async (req, res) => {
+    const { text, name = 'Anonymous', color = 'putih', profile } = req.query;
 
-router.post('/', async (req, res) => {
-  const { text, color, name, photo_url } = req.body;
-  if (!text || !color || !name || !photo_url) return res.status(400).json({ status: false, message: 'Missing required fields' });
-  if (!colorList.includes(color.toLowerCase())) return res.status(400).json({ status: false, message: 'Invalid color' });
+    if (!text) return res.status(400).send({ status: false, message: 'Text tidak boleh kosong!' });
 
-  const base64Image = await urlToBase64(photo_url);
-  if (!base64Image) return res.status(500).json({ status: false, message: 'Failed to fetch image' });
+    const bgColor = warnaMap[color.toLowerCase()] || (color.startsWith('#') ? color : '#ffffff');
+    const profilePic = profile || 'https://telegra.ph/file/320b066dc81928b782c7b.png';
 
-  const payload = {
-    type: 'quote',
-    format: 'png',
-    backgroundColor: color,
-    width: 512,
-    height: 768,
-    scale: 2,
-    messages: [
-      {
-        entities: [],
-        avatar: true,
-        from: {
-          id: 1,
-          name: name,
-          photo: { url: `data:image/jpeg;base64,${base64Image}` }
-        },
-        text: text
-      }
-    ]
-  };
+    try {
+        const payload = {
+            type: "quote",
+            format: "png",
+            backgroundColor: bgColor,
+            width: 512,
+            height: 768,
+            scale: 2,
+            messages: [
+                {
+                    entities: [],
+                    avatar: true,
+                    from: {
+                        id: 1,
+                        name: name,
+                        photo: { url: profilePic }
+                    },
+                    text: text
+                }
+            ]
+        };
 
-  try {
-    const result = await axios.post('https://bot.lyo.su/quote/generate', payload, { headers: { 'Content-Type': 'application/json' } });
-    const imageBuffer = Buffer.from(result.data.result.image, 'base64');
-    res.set('Content-Type', 'image/png');
-    res.send(imageBuffer);
-  } catch {
-    res.status(500).json({ status: false, message: 'Failed to generate quote' });
-  }
+        const quoteRes = await axios.post('https://bot.lyo.su/quote/generate', payload, {
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        const buffer = Buffer.from(quoteRes.data.result.image, 'base64');
+
+        res.set('Content-Type', 'image/png');
+        res.send(buffer);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ status: false, message: 'Gagal membuat quote.' });
+    }
 });
 
 module.exports = router;
