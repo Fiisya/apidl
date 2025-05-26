@@ -2,6 +2,84 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
+async function tiktokDownloaderVideo(url) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let data = [];
+
+            function formatNumber(integer) {
+                return Number(parseInt(integer)).toLocaleString().replace(/,/g, ".");
+            }
+
+            function formatDate(n, locale = "id-ID") {
+                let d = new Date(n * 1000);
+                return d.toLocaleString(locale, {
+                    weekday: "long",
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                    hour: "numeric",
+                    minute: "numeric"
+                });
+            }
+
+            let domain = "https://www.tikwm.com/api/";
+            let res = (await axios.post(domain, {}, {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Referer": "https://www.tikwm.com/",
+                    "User-Agent": "Mozilla/5.0 (Linux; Android 10)"
+                },
+                params: {
+                    url,
+                    count: 12,
+                    cursor: 0,
+                    web: 1,
+                    hd: 1
+                }
+            })).data.data;
+
+            if (!res.size) {
+                res.images.forEach(v => {
+                    data.push({ type: "photo", url: v });
+                });
+            } else {
+                data.push({
+                    type: "watermark",
+                    url: "https://www.tikwm.com" + res.wmplay
+                }, {
+                    type: "nowatermark",
+                    url: "https://www.tikwm.com" + res.play
+                }, {
+                    type: "nowatermark_hd",
+                    url: "https://www.tikwm.com" + res.hdplay
+                });
+            }
+
+            resolve({
+                status: true,
+                title: res.title,
+                taken_at: formatDate(res.create_time),
+                region: res.region,
+                id: res.id,
+                duration: res.duration + " detik",
+                cover: "https://www.tikwm.com" + res.cover,
+                music_info: {
+                    title: res.music_info.title,
+                    author: res.music_info.author,
+                    url: "https://www.tikwm.com" + (res.music || res.music_info.play)
+                },
+                data,
+                author: {
+                    nickname: res.author.nickname
+                }
+            });
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
+
 router.get('/', async (req, res) => {
     const url = req.query.url;
 
@@ -14,41 +92,15 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        const response = await axios.post(
-            'https://snaptikapp.me/wp-json/aio-dl/video-data',
-            { url },
-            {
-                headers: {
-                    Accept: '*/*',
-                    'Content-Type': 'application/json',
-                    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Mobile Safari/537.36',
-                },
-                timeout: 10000
-            }
-        );
-
-        const { data } = response;
-
-        if (!data || !data.medias || data.medias.length === 0) {
-            return res.status(500).json({
-                status: 500,
-                creator: "AlfiXD",
-                error: "Gagal mendapatkan link video."
-            });
-        }
-
+        const result = await tiktokDownloaderVideo(url);
         res.json({
             status: 200,
-            creator: "AlfiXD",
+            creator: 'AlfiXD',
             source: url,
-            download_links: data.medias.map(media => ({
-                quality: media.quality || "Unknown",
-                format: media.format || "Unknown",
-                url: media.url
-            }))
+            ...result
         });
     } catch (err) {
-        console.error("Error:", err.message, err.response?.data);
+        console.error("Error:", err.message);
         res.status(500).json({
             status: 500,
             creator: 'AlfiXD',
