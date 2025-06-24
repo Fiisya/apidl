@@ -1,5 +1,3 @@
-Tentu, berikut adalah contoh README.md yang lengkap dan terperinci dengan tampilan menarik untuk repositori API Anda, berdasarkan file-file yang Anda berikan:
-
 ````markdown
 # Rest API AlfiXD
 
