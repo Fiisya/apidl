@@ -1,4 +1,3 @@
-````markdown
 # Rest API AlfiXD
 
 [![Total Endpoints](https://img.shields.io/badge/Endpoints-30%2B-blue?style=for-the-badge)](https://api.alfixd.my.id)
@@ -248,6 +247,3 @@ Atau bergabung dengan saluran WhatsApp: [WhatsApp Channel](https://whatsapp.com/
 -----
 
 Made with ❤️ by AlfiXD
-
-```
-```
